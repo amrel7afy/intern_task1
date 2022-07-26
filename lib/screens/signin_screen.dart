@@ -36,47 +36,49 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
         ),
       ),
-      body:  Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          //LOGO
-          Center(
-            child: Container(
-              width: width*0.85,
-              height: height*0.3,
-              decoration: const BoxDecoration(
-                image: DecorationImage(image: AssetImage('assets/img.png'),fit: BoxFit.fill)
+      body:  SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            //LOGO
+            Center(
+              child: Container(
+                width: width*0.85,
+                height: height*0.3,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(image: AssetImage('assets/img.png'),fit: BoxFit.fill)
+                ),
               ),
             ),
-          ),
-          //Text
-          Text('Welcome Back!',style: text1,),
-         const SizedBox(height: 10,),
-          Text('Login to your account',style: Theme.of(context).textTheme.bodyText1,),
-          FormFieldBuilder(prefixIcon: Icon(Icons.email_outlined,color: Colors.blue,),hint: 'Email ID'),
-          FormFieldBuilder(prefixIcon:Icon(Icons.key,color: Colors.blue),hint: 'Password',suffixIcon: Icon(Icons.remove_red_eye_outlined,color: Colors.blue,),),
+            //Text
+            Text('Welcome Back!',style: text1,),
+           const SizedBox(height: 10,),
+            Text('Login to your account',style: Theme.of(context).textTheme.bodyText1,),
+            FormFieldBuilder(prefixIcon: Icon(Icons.email_outlined,color: Colors.blue,),hint: 'Email ID'),
+            FormFieldBuilder(prefixIcon:Icon(Icons.key,color: Colors.blue),hint: 'Password',suffixIcon: Icon(Icons.remove_red_eye_outlined,color: Colors.blue,),),
 
-
-          Spacer(),
-          InkWell(
-            onTap: (){},
-            child: Container(
-              width: width*0.8,
-              height: 40,
-              child: Center(child: Text('Send OTP',style: Theme.of(context).textTheme.headline6.copyWith(color: Colors.white),)),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.circular(20)
+            SizedBox(height: 60,),
+            InkWell(
+              onTap: (){},
+              child: Container(
+                width: width*0.8,
+                height: 40,
+                child: Center(child: Text('Send OTP',style: Theme.of(context).textTheme.headline6.copyWith(color: Colors.white),)),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(20)
+                ),
               ),
             ),
-          ),
-         const  Spacer(),
-          Row(mainAxisAlignment: MainAxisAlignment.center,
-            children: [const Text('Dont have an account? '),TextButton(onPressed: (){}, child: Text('Sign Up here'))],
-          )
+         SizedBox(height: 60,),
+            Row(mainAxisAlignment: MainAxisAlignment.center,
+              children: [const Text('Dont have an account? '),TextButton(onPressed: (){}, child: Text('Sign Up here'))],
+            )
 
 
-        ],
+          ],
+        ),
       ),
 
     );
